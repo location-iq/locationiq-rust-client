@@ -31,12 +31,12 @@ impl<C: hyper::client::Connect> SearchApiClient<C> {
 }
 
 pub trait SearchApi {
-    fn search(&self, q: &str, format: &str, normalizecity: i32, addressdetails: i32, viewbox: &str, bounded: i32, limit: i32, accept_language: &str, countrycodes: &str, namedetails: i32, dedupe: i32, extratags: i32) -> Box<Future<Item = Vec<::models::Location>, Error = Error<serde_json::Value>>>;
+    fn search(&self, q: &str, format: &str, normalizecity: i32, addressdetails: i32, viewbox: &str, bounded: i32, limit: i32, accept_language: &str, countrycodes: &str, namedetails: i32, dedupe: i32, extratags: i32, statecode: i32) -> Box<Future<Item = Vec<::models::Location>, Error = Error<serde_json::Value>>>;
 }
 
 
 impl<C: hyper::client::Connect>SearchApi for SearchApiClient<C> {
-    fn search(&self, q: &str, format: &str, normalizecity: i32, addressdetails: i32, viewbox: &str, bounded: i32, limit: i32, accept_language: &str, countrycodes: &str, namedetails: i32, dedupe: i32, extratags: i32) -> Box<Future<Item = Vec<::models::Location>, Error = Error<serde_json::Value>>> {
+    fn search(&self, q: &str, format: &str, normalizecity: i32, addressdetails: i32, viewbox: &str, bounded: i32, limit: i32, accept_language: &str, countrycodes: &str, namedetails: i32, dedupe: i32, extratags: i32, statecode: i32) -> Box<Future<Item = Vec<::models::Location>, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/search.php".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: false,
@@ -55,6 +55,7 @@ impl<C: hyper::client::Connect>SearchApi for SearchApiClient<C> {
             .with_query_param("namedetails".to_string(), namedetails.to_string())
             .with_query_param("dedupe".to_string(), dedupe.to_string())
             .with_query_param("extratags".to_string(), extratags.to_string())
+            .with_query_param("statecode".to_string(), statecode.to_string())
             .execute(self.configuration.borrow())
     }
 

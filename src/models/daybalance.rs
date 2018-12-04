@@ -15,13 +15,16 @@ use serde_json::Value;
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Daybalance {
   #[serde(rename = "day")]
-  day: Option<i32>
+  day: Option<i32>,
+  #[serde(rename = "bonus")]
+  bonus: Option<i32>
 }
 
 impl Daybalance {
   pub fn new() -> Daybalance {
     Daybalance {
-      day: None
+      day: None,
+      bonus: None
     }
   }
 
@@ -40,6 +43,23 @@ impl Daybalance {
 
   pub fn reset_day(&mut self) {
     self.day = None;
+  }
+
+  pub fn set_bonus(&mut self, bonus: i32) {
+    self.bonus = Some(bonus);
+  }
+
+  pub fn with_bonus(mut self, bonus: i32) -> Daybalance {
+    self.bonus = Some(bonus);
+    self
+  }
+
+  pub fn bonus(&self) -> Option<&i32> {
+    self.bonus.as_ref()
+  }
+
+  pub fn reset_bonus(&mut self) {
+    self.bonus = None;
   }
 
 }

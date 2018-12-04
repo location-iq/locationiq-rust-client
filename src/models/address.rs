@@ -20,20 +20,40 @@ pub struct Address {
   road: Option<String>,
   #[serde(rename = "residential")]
   residential: Option<String>,
+  #[serde(rename = "borough")]
+  borough: Option<String>,
+  #[serde(rename = "neighbourhood")]
+  neighbourhood: Option<String>,
+  #[serde(rename = "quarter")]
+  quarter: Option<String>,
+  #[serde(rename = "hamlet")]
+  hamlet: Option<String>,
+  #[serde(rename = "suburb")]
+  suburb: Option<String>,
+  #[serde(rename = "island")]
+  island: Option<String>,
   #[serde(rename = "village")]
   village: Option<String>,
+  #[serde(rename = "town")]
+  town: Option<String>,
+  #[serde(rename = "city")]
+  city: Option<String>,
+  #[serde(rename = "city_district")]
+  city_district: Option<String>,
   #[serde(rename = "county")]
   county: Option<String>,
   #[serde(rename = "state")]
   state: Option<String>,
+  #[serde(rename = "state_district")]
+  state_district: Option<String>,
   #[serde(rename = "postcode")]
   postcode: Option<String>,
   #[serde(rename = "country")]
   country: Option<String>,
   #[serde(rename = "country_code")]
   country_code: Option<String>,
-  #[serde(rename = "city")]
-  city: Option<String>
+  #[serde(rename = "state_code")]
+  state_code: Option<String>
 }
 
 impl Address {
@@ -42,13 +62,23 @@ impl Address {
       house_number: None,
       road: None,
       residential: None,
+      borough: None,
+      neighbourhood: None,
+      quarter: None,
+      hamlet: None,
+      suburb: None,
+      island: None,
       village: None,
+      town: None,
+      city: None,
+      city_district: None,
       county: None,
       state: None,
+      state_district: None,
       postcode: None,
       country: None,
       country_code: None,
-      city: None
+      state_code: None
     }
   }
 
@@ -103,6 +133,108 @@ impl Address {
     self.residential = None;
   }
 
+  pub fn set_borough(&mut self, borough: String) {
+    self.borough = Some(borough);
+  }
+
+  pub fn with_borough(mut self, borough: String) -> Address {
+    self.borough = Some(borough);
+    self
+  }
+
+  pub fn borough(&self) -> Option<&String> {
+    self.borough.as_ref()
+  }
+
+  pub fn reset_borough(&mut self) {
+    self.borough = None;
+  }
+
+  pub fn set_neighbourhood(&mut self, neighbourhood: String) {
+    self.neighbourhood = Some(neighbourhood);
+  }
+
+  pub fn with_neighbourhood(mut self, neighbourhood: String) -> Address {
+    self.neighbourhood = Some(neighbourhood);
+    self
+  }
+
+  pub fn neighbourhood(&self) -> Option<&String> {
+    self.neighbourhood.as_ref()
+  }
+
+  pub fn reset_neighbourhood(&mut self) {
+    self.neighbourhood = None;
+  }
+
+  pub fn set_quarter(&mut self, quarter: String) {
+    self.quarter = Some(quarter);
+  }
+
+  pub fn with_quarter(mut self, quarter: String) -> Address {
+    self.quarter = Some(quarter);
+    self
+  }
+
+  pub fn quarter(&self) -> Option<&String> {
+    self.quarter.as_ref()
+  }
+
+  pub fn reset_quarter(&mut self) {
+    self.quarter = None;
+  }
+
+  pub fn set_hamlet(&mut self, hamlet: String) {
+    self.hamlet = Some(hamlet);
+  }
+
+  pub fn with_hamlet(mut self, hamlet: String) -> Address {
+    self.hamlet = Some(hamlet);
+    self
+  }
+
+  pub fn hamlet(&self) -> Option<&String> {
+    self.hamlet.as_ref()
+  }
+
+  pub fn reset_hamlet(&mut self) {
+    self.hamlet = None;
+  }
+
+  pub fn set_suburb(&mut self, suburb: String) {
+    self.suburb = Some(suburb);
+  }
+
+  pub fn with_suburb(mut self, suburb: String) -> Address {
+    self.suburb = Some(suburb);
+    self
+  }
+
+  pub fn suburb(&self) -> Option<&String> {
+    self.suburb.as_ref()
+  }
+
+  pub fn reset_suburb(&mut self) {
+    self.suburb = None;
+  }
+
+  pub fn set_island(&mut self, island: String) {
+    self.island = Some(island);
+  }
+
+  pub fn with_island(mut self, island: String) -> Address {
+    self.island = Some(island);
+    self
+  }
+
+  pub fn island(&self) -> Option<&String> {
+    self.island.as_ref()
+  }
+
+  pub fn reset_island(&mut self) {
+    self.island = None;
+  }
+
   pub fn set_village(&mut self, village: String) {
     self.village = Some(village);
   }
@@ -118,6 +250,57 @@ impl Address {
 
   pub fn reset_village(&mut self) {
     self.village = None;
+  }
+
+  pub fn set_town(&mut self, town: String) {
+    self.town = Some(town);
+  }
+
+  pub fn with_town(mut self, town: String) -> Address {
+    self.town = Some(town);
+    self
+  }
+
+  pub fn town(&self) -> Option<&String> {
+    self.town.as_ref()
+  }
+
+  pub fn reset_town(&mut self) {
+    self.town = None;
+  }
+
+  pub fn set_city(&mut self, city: String) {
+    self.city = Some(city);
+  }
+
+  pub fn with_city(mut self, city: String) -> Address {
+    self.city = Some(city);
+    self
+  }
+
+  pub fn city(&self) -> Option<&String> {
+    self.city.as_ref()
+  }
+
+  pub fn reset_city(&mut self) {
+    self.city = None;
+  }
+
+  pub fn set_city_district(&mut self, city_district: String) {
+    self.city_district = Some(city_district);
+  }
+
+  pub fn with_city_district(mut self, city_district: String) -> Address {
+    self.city_district = Some(city_district);
+    self
+  }
+
+  pub fn city_district(&self) -> Option<&String> {
+    self.city_district.as_ref()
+  }
+
+  pub fn reset_city_district(&mut self) {
+    self.city_district = None;
   }
 
   pub fn set_county(&mut self, county: String) {
@@ -152,6 +335,23 @@ impl Address {
 
   pub fn reset_state(&mut self) {
     self.state = None;
+  }
+
+  pub fn set_state_district(&mut self, state_district: String) {
+    self.state_district = Some(state_district);
+  }
+
+  pub fn with_state_district(mut self, state_district: String) -> Address {
+    self.state_district = Some(state_district);
+    self
+  }
+
+  pub fn state_district(&self) -> Option<&String> {
+    self.state_district.as_ref()
+  }
+
+  pub fn reset_state_district(&mut self) {
+    self.state_district = None;
   }
 
   pub fn set_postcode(&mut self, postcode: String) {
@@ -205,21 +405,21 @@ impl Address {
     self.country_code = None;
   }
 
-  pub fn set_city(&mut self, city: String) {
-    self.city = Some(city);
+  pub fn set_state_code(&mut self, state_code: String) {
+    self.state_code = Some(state_code);
   }
 
-  pub fn with_city(mut self, city: String) -> Address {
-    self.city = Some(city);
+  pub fn with_state_code(mut self, state_code: String) -> Address {
+    self.state_code = Some(state_code);
     self
   }
 
-  pub fn city(&self) -> Option<&String> {
-    self.city.as_ref()
+  pub fn state_code(&self) -> Option<&String> {
+    self.state_code.as_ref()
   }
 
-  pub fn reset_city(&mut self) {
-    self.city = None;
+  pub fn reset_state_code(&mut self) {
+    self.state_code = None;
   }
 
 }

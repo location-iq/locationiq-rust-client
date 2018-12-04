@@ -31,12 +31,12 @@ impl<C: hyper::client::Connect> ReverseApiClient<C> {
 }
 
 pub trait ReverseApi {
-    fn reverse(&self, lat: f32, lon: f32, format: &str, normalizecity: i32, addressdetails: i32, accept_language: &str, namedetails: i32, extratags: i32) -> Box<Future<Item = ::models::Location, Error = Error<serde_json::Value>>>;
+    fn reverse(&self, lat: f32, lon: f32, format: &str, normalizecity: i32, addressdetails: i32, accept_language: &str, namedetails: i32, extratags: i32, statecode: i32) -> Box<Future<Item = ::models::Location, Error = Error<serde_json::Value>>>;
 }
 
 
 impl<C: hyper::client::Connect>ReverseApi for ReverseApiClient<C> {
-    fn reverse(&self, lat: f32, lon: f32, format: &str, normalizecity: i32, addressdetails: i32, accept_language: &str, namedetails: i32, extratags: i32) -> Box<Future<Item = ::models::Location, Error = Error<serde_json::Value>>> {
+    fn reverse(&self, lat: f32, lon: f32, format: &str, normalizecity: i32, addressdetails: i32, accept_language: &str, namedetails: i32, extratags: i32, statecode: i32) -> Box<Future<Item = ::models::Location, Error = Error<serde_json::Value>>> {
         __internal_request::Request::new(hyper::Method::Get, "/reverse.php".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: false,
@@ -51,6 +51,7 @@ impl<C: hyper::client::Connect>ReverseApi for ReverseApiClient<C> {
             .with_query_param("accept-language".to_string(), accept_language.to_string())
             .with_query_param("namedetails".to_string(), namedetails.to_string())
             .with_query_param("extratags".to_string(), extratags.to_string())
+            .with_query_param("statecode".to_string(), statecode.to_string())
             .execute(self.configuration.borrow())
     }
 
