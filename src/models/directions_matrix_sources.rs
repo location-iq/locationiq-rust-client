@@ -12,14 +12,20 @@
 
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct Namedetails {
+pub struct DirectionsMatrixSources {
+    #[serde(rename = "distance", skip_serializing_if = "Option::is_none")]
+    pub distance: Option<f32>,
+    #[serde(rename = "location", skip_serializing_if = "Option::is_none")]
+    pub location: Option<Vec<f32>>,
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
 
-impl Namedetails {
-    pub fn new() -> Namedetails {
-        Namedetails {
+impl DirectionsMatrixSources {
+    pub fn new() -> DirectionsMatrixSources {
+        DirectionsMatrixSources {
+            distance: None,
+            location: None,
             name: None,
         }
     }

@@ -1,15 +1,28 @@
-mod address;
+pub mod address;
 pub use self::address::Address;
-mod balance;
+pub mod balance;
 pub use self::balance::Balance;
-mod daybalance;
+pub mod daybalance;
 pub use self::daybalance::Daybalance;
-mod error;
+pub mod directions_directions;
+pub use self::directions_directions::DirectionsDirections;
+pub mod directions_directions_routes;
+pub use self::directions_directions_routes::DirectionsDirectionsRoutes;
+pub mod directions_matching;
+pub use self::directions_matching::DirectionsMatching;
+pub mod directions_matrix;
+pub use self::directions_matrix::DirectionsMatrix;
+pub mod directions_matrix_sources;
+pub use self::directions_matrix_sources::DirectionsMatrixSources;
+pub mod directions_nearest;
+pub use self::directions_nearest::DirectionsNearest;
+pub mod directions_nearest_waypoints;
+pub use self::directions_nearest_waypoints::DirectionsNearestWaypoints;
+pub mod error;
 pub use self::error::Error;
-mod location;
+pub mod location;
 pub use self::location::Location;
-mod namedetails;
+pub mod matchquality;
+pub use self::matchquality::Matchquality;
+pub mod namedetails;
 pub use self::namedetails::Namedetails;
-
-// TODO(farcaller): sort out files
-pub struct File;

@@ -12,14 +12,23 @@
 
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct Namedetails {
+pub struct DirectionsNearestWaypoints {
+    #[serde(rename = "nodes", skip_serializing_if = "Option::is_none")]
+    pub nodes: Option<Vec<f32>>,
+    #[serde(rename = "distance", skip_serializing_if = "Option::is_none")]
+    pub distance: Option<f32>,
+    #[serde(rename = "location", skip_serializing_if = "Option::is_none")]
+    pub location: Option<Vec<f32>>,
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 }
 
-impl Namedetails {
-    pub fn new() -> Namedetails {
-        Namedetails {
+impl DirectionsNearestWaypoints {
+    pub fn new() -> DirectionsNearestWaypoints {
+        DirectionsNearestWaypoints {
+            nodes: None,
+            distance: None,
+            location: None,
             name: None,
         }
     }

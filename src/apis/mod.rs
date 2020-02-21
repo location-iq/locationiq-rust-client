@@ -49,12 +49,20 @@ impl<T> From<serde_json::Error> for Error<T> {
     }
 }
 
-use super::models::*;
-
 mod request;
 
+mod autocomplete_api;
+pub use self::autocomplete_api::{ AutocompleteApi, AutocompleteApiClient };
 mod balance_api;
 pub use self::balance_api::{ BalanceApi, BalanceApiClient };
+mod directions_api;
+pub use self::directions_api::{ DirectionsApi, DirectionsApiClient };
+mod matching_api;
+pub use self::matching_api::{ MatchingApi, MatchingApiClient };
+mod matrix_api;
+pub use self::matrix_api::{ MatrixApi, MatrixApiClient };
+mod nearest_api;
+pub use self::nearest_api::{ NearestApi, NearestApiClient };
 mod reverse_api;
 pub use self::reverse_api::{ ReverseApi, ReverseApiClient };
 mod search_api;
