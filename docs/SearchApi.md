@@ -1,4 +1,4 @@
-# \SearchApi
+# LocationIq\SearchApi
 
 All URIs are relative to *https://eu1.locationiq.com/v1*
 

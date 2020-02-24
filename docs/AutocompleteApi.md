@@ -1,4 +1,4 @@
-# \AutocompleteApi
+# LocationIq\AutocompleteApi
 
 All URIs are relative to *https://eu1.locationiq.com/v1*
 

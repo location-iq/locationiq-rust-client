@@ -1,4 +1,4 @@
-# Rust API client for openapi
+# Rust API client for locationiq
 
 LocationIQ provides flexible enterprise-grade location based solutions. We work with developers, startups and enterprises worldwide serving billions of requests everyday. This page provides an overview of the technical aspects of our API and will help you get started.
 
