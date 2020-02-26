@@ -12,18 +12,18 @@
 
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct Balance {
-    #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
-    pub status: Option<String>,
-    #[serde(rename = "balance", skip_serializing_if = "Option::is_none")]
-    pub balance: Option<crate::models::Daybalance>,
+pub struct DirectionsNearest {
+    #[serde(rename = "code", skip_serializing_if = "Option::is_none")]
+    pub code: Option<String>,
+    #[serde(rename = "waypoints", skip_serializing_if = "Option::is_none")]
+    pub waypoints: Option<Vec<crate::models::DirectionsNearestWaypoints>>,
 }
 
-impl Balance {
-    pub fn new() -> Balance {
-        Balance {
-            status: None,
-            balance: None,
+impl DirectionsNearest {
+    pub fn new() -> DirectionsNearest {
+        DirectionsNearest {
+            code: None,
+            waypoints: None,
         }
     }
 }
